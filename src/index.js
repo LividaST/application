@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const client = require('discord-rich-presence')('505565519387033600');
+const snek = require('snekfetch');
 
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -56,8 +57,8 @@ app.on('activate', () => {
 });
 
 client.updatePresence({
-  state: `On Livida ${process.platform} application!`,
-  details: 'Home Page',
+  state: `Your listening to song?`,
+  details: 'Listening to Livida Radio!',
   largeImageKey: 'logo',
   smallImageKey: 'icon',
   instance: true,
