@@ -57,7 +57,7 @@ app.on('activate', () => {
 });
 
 client.updatePresence({
-  state: `Your listening to song?`,
+  state: 'Your listening to song',
   details: 'Listening to Livida Radio!',
   largeImageKey: 'logo',
   smallImageKey: 'icon',
