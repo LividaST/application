@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron');
+const fetch = require('node-fetch');
 const client = require('discord-rich-presence')('505565519387033600');
 const api = 'https://radio.livida.net/api';
 
@@ -15,8 +16,8 @@ let mainWindow;
 const createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 500,
+    height: 200,
   });
 
   // and load the index.html of the app.
@@ -56,17 +57,26 @@ app.on('activate', () => {
   }
 });
 
-// This is what I want to work on now
+const updateSong = async () => {
+  try {
+    let data = await (await fetch(`https://radio.livida.net/api/nowplaying/2`)).json();
+    let { now_playing: np } = data;
+    let { song } = np;
+    let { artist, title, albulm, art } = song;
+    client.updatePresence({
+      details: `Listening to Livida Radio`,
+      state: `${title} by ${artist}`,
+      largeImageKey: 'logo',
+      smallImageKey: 'icon',
+      instance: true,
+    });
+  } catch (err) {
+    console.error(err);
+  };
+};
 
-// API with status
-
-client.updatePresence({
-  state: `Is listening to song ${song}`,
-  details: 'Listening to Livida Radio!',
-  largeImageKey: 'logo',
-  smallImageKey: 'icon',
-  instance: true,
-});
+updateSong();
+setInterval(updateSong, 5000);
 
 
 // In this file you can include the rest of your app's specific main process
