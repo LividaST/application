@@ -56,7 +56,9 @@ app.on('activate', () => {
   }
 });
 
+// This is what I want to work on now
 
+// API with status
 
 client.updatePresence({
   state: `Is listening to song ${song}`,
