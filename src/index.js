@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const client = require('discord-rich-presence')('505565519387033600');
-const snek = require('snekfetch');
+const api = 'https://radio.livida.net/api';
 
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -56,8 +56,10 @@ app.on('activate', () => {
   }
 });
 
+
+
 client.updatePresence({
-  state: 'Your listening to song',
+  state: `Is listening to song ${song}`,
   details: 'Listening to Livida Radio!',
   largeImageKey: 'logo',
   smallImageKey: 'icon',
