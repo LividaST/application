@@ -21,7 +21,8 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "livida_app"
+            "name": "livida_app",
+            "setupExe": "Livida Setup"
           }
         },
         {
