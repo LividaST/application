@@ -2,7 +2,7 @@
   "name": "livida",
   "productName": "livida-app",
   "version": "0.1.2",
-  "description": "My Electron application description",
+  "description": "An application for Livida.net!",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
@@ -22,7 +22,8 @@
           "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "livida_app",
-            "setupExe": "Livida Setup.exe"
+            "setupExe": "Livida Setup.exe",
+            "iconURL": "https://livida.net/assets/favicon.ico"
           }
         },
         {
