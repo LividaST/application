@@ -1,7 +1,7 @@
 {
   "name": "livida-app",
   "productName": "livida-app",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
@@ -22,7 +22,7 @@
           "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "livida_app",
-            "setupExe": "Livida Setup"
+            "setupExe": "Livida Setup.exe"
           }
         },
         {
