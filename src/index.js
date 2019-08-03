@@ -1,6 +1,6 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const fetch = require('node-fetch');
-const client = require('discord-rich-presence')('505565519387033600');
+const client = require('discord-rich-presence')('602573554780733450');
 const api = 'https://radio.livida.net/api';
 
 
@@ -38,7 +38,18 @@ const createWindow = () => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', function(){
+  createWindow()
+
+  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+  Menu.setApplicationMenu(mainMenu);
+})
+
+const mainMenuTemplate = [
+  {
+    label: 'Something'
+  }
+];
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -66,8 +77,8 @@ const updateSong = async () => {
     client.updatePresence({
       details: `Listening to Livida Radio`,
       state: `${title} by ${artist}`,
-      largeImageKey: 'logo',
-      smallImageKey: 'icon',
+      largeImageKey: 'icon',
+      smallImageKey: 'crown',
       instance: true,
     });
   } catch (err) {
