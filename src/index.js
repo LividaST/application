@@ -1,8 +1,6 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const fetch = require('node-fetch');
 const client = require('discord-rich-presence')('602573554780733450');
-const api = 'https://radio.livida.net/api';
-
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
