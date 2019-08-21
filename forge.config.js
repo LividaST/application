@@ -34,7 +34,8 @@ module.exports = {
                 owner: 'LividaST',
                 name: 'application'
               },
-              prerelease: false
+              prerelease: false,
+              authToken: 'token here'
             }
           }
     ]
