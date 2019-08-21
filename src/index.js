@@ -95,7 +95,7 @@ app.on('activate', () => {
 
 const updateSong = async () => {
   try {
-    let data = await (await fetch(`https://radio.livida.net/api/nowplaying/2`)).json();
+    let data = await (await fetch(`https://radio.livida.net/api/nowplaying/1`)).json();
     let { now_playing: np } = data;
     let { song } = np;
     let { artist, title, albulm, art } = song;
