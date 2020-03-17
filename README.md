@@ -1,4 +1,4 @@
-![GitHub Releases](https://img.shields.io/github/downloads/LividaST/application/latest/total)
+![GitHub Releases](https://img.shields.io/github/downloads/LividaST/application/latest/total) [![Known Vulnerabilities](https://snyk.io/test/github/LividaST/application/badge.svg?targetFile=package.json)](https://snyk.io/test/github/LividaST/application?targetFile=package.json)
 
 # Livida Application
 
