@@ -1,5 +1,7 @@
 module.exports = {
-    packagerConfig: {},
+    packagerConfig: {
+      icon: "assets/favicon.ico"
+    },
     publishers: [
       {
         name: '@electron-forge/publisher-github',
@@ -19,7 +21,7 @@ module.exports = {
             name: "Livida",
             setupExe: "Livida Setup.exe",
             exe: "Livida.exe",
-            iconUrl: "https://livida.net/assets/Purple.ico",
+            iconUrl: "https://livida.net/assets/favicon.ico",
             setupIcon: "assets/favicon.ico"
           }
         },
