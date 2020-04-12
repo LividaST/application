@@ -19,7 +19,7 @@ module.exports = {
             name: "Livida",
             setupExe: "Livida Setup.exe",
             exe: "Livida.exe",
-            iconUrl: "https://livida.net/assets/favicon.ico",
+            iconUrl: "https://livida.net/assets/Purple.ico",
             setupIcon: "assets/favicon.ico"
           }
         },
