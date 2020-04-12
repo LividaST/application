@@ -1,5 +1,17 @@
 module.exports = {
     packagerConfig: {},
+    publishers: [
+      {
+        name: '@electron-forge/publisher-github',
+        config: {
+          repository: {
+            owner: 'LividaST',
+            name: 'application'
+          },
+          prerelease: true
+        }
+      }
+    ],
     makers: [
         {
           name: "@electron-forge/maker-squirrel",
@@ -25,5 +37,5 @@ module.exports = {
           name: "@electron-forge/maker-rpm",
           config: {}
         }
-      ],
+      ]
     }
