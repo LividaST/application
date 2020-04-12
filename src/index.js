@@ -49,7 +49,7 @@ const createWindow = () => {
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-//  mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
@@ -63,18 +63,10 @@ const createWindow = () => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', function(){
-  createWindow()
 
-  const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
-  Menu.setApplicationMenu(mainMenu);
+ app.on('ready', function(){
+   createWindow()
 })
-
-const mainMenuTemplate = [
-  {
-    label: 'Something'
-  }
-];
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -98,11 +90,12 @@ const updateSong = async () => {
     let data = await (await fetch(`https://radio.livida.net/api/nowplaying/1`)).json();
     let { now_playing: np } = data;
     let { song } = np;
-    let { artist, title, albulm, art } = song;
+    let { artist, title} = song;
     client.updatePresence({
       details: `Listening to Livida Radio`,
       state: `${title} by ${artist}`,
       largeImageKey: 'icon',
+      largeImageText: 'livida.net',
       smallImageKey: 'crown',
       instance: true,
     });
