@@ -1,0 +1,10 @@
+b, strong {
+    padding-right: 10px;
+  }
+  
+  #main-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

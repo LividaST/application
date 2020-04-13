@@ -1,4 +1,5 @@
 const { app, BrowserWindow, Menu, autoUpdater, dialog } = require('electron');
+const shell = require('electron').shell
 const fetch = require('node-fetch');
 const client = require('discord-rich-presence')('602573554780733450');
 const server = 'https://dl.livida.net'
@@ -48,9 +49,6 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
-
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
     // Dereference the window object, usually you would store windows
@@ -66,8 +64,21 @@ const createWindow = () => {
 
  app.on('ready', function(){
    createWindow()
-})
-
+   const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
+   Menu.setApplicationMenu(mainMenu);
+ })
+ 
+ const mainMenuTemplate = [
+   {
+     label: 'Livida',
+     submenu: [
+       {label:'Discord',
+        click() {
+          shell.openExternal('https://discord.gg/6vRE5NJ')
+        }}
+     ]
+   }
+ ];
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // On OS X it is common for applications and their menu bar
