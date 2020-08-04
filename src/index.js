@@ -1,5 +1,4 @@
-const { app, BrowserWindow, Menu, autoUpdater, dialog } = require('electron')
-const shell = require('electron').shell
+const { app, BrowserWindow, autoUpdater, dialog } = require('electron')
 const fetch = require('node-fetch')
 const client = require('discord-rich-presence')('602573554780733450')
 const server = 'https://dl.livida.net'
