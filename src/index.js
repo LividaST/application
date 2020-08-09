@@ -86,7 +86,7 @@ app.on('activate', () => {
 
 const updateSong = async () => {
   try {
-    const { data } = await (await fetch('https://api.livida.net/api/radio/livida')).json()
+    const { data } = await (await fetch('https://api.livida.net/api/radio/')).json()
     client.updatePresence({
       details: `🎵 | ${data.song.name} by ${data.song.artist}`,
       state: `🎙️ | ${data.dj}`,

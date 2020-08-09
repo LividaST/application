@@ -55,24 +55,10 @@ const togglePlay = () => {
 
 
 const updateStats = () => {
-    $.get('https://api.livida.net/api/radio/livida', (res) => {
+    $.get('https://api.livida.net/api/radio/', (res) => {
         const { data } = res;
-        fetchJsonp('https://api.deezer.com/search/track/autocomplete?limit=1&q=' + data.song.name + ` ${data.song.artist}` + '&output=jsonp')
-        .then(res => res.json())
-        .then(res => {
-            if (res.data[0]) {
-                $('.song-art').attr('src', res.data[0].album.cover || `./assets/img/Livida.png`);
-                $('.artist-image').attr('src', res.data[0].artist.picture || `./assets/img/Livida.png`);
-            } else {
-                $('.song-art').attr('src', `./assets/img/Livida.png`);
-                $('.artist-image').attr('src', `./assets/img/Livida.png`);
-            };
-        })
-        .catch((err) => {
-            console.error(`Error whilst fetching from Deezer for ${playing.song}:`, err);
-            $('.song-art').attr('src', `./assets/img/Livida.png`);
-            $('.artist-image').attr('src', `./assets/img/Livida.png`);
-        });
+        $('.song-art').attr('src', data.song.art || `./assets/img/Livida.png`);
+        $('.artist-image').attr('src', `./assets/img/Livida.png`);
         $('.song-title').text(data.song.name);
         $('.song-artist').text(data.song.artist);
         $('.dj-name').text(data.dj);
