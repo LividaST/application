@@ -3,6 +3,7 @@ const fetch = require('node-fetch')
 const client = require('discord-rich-presence')('602573554780733450')
 const server = 'https://dl.livida.net'
 const feed = `${server}/update/${process.platform}/${app.getVersion()}`
+const time = Math.floor(Date.now() / 1000)
 
 autoUpdater.setFeedURL(feed)
 
@@ -93,7 +94,8 @@ const updateSong = async () => {
       largeImageKey: 'icon',
       largeImageText: 'livida.net',
       smallImageKey: 'crown',
-      instance: true
+      instance: true,
+      startTimestamp: time
     })
   } catch (err) {
     console.error(err)
