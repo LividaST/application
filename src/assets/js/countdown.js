@@ -58,7 +58,7 @@ const updateStats = () => {
     $.get('https://api.livida.net/api/radio/', (res) => {
         const { data } = res;
         $('.song-art').attr('src', data.song.art || `./assets/img/Livida.png`);
-        $('.artist-image').attr('src', `./assets/img/Livida.png`);
+        $('.artist-image').attr('src', data.slot.avatar || `./assets/img/Livida.png`);
         $('.song-title').text(data.song.name);
         $('.song-artist').text(data.song.artist);
         $('.dj-name').text(data.dj);
