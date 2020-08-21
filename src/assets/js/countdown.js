@@ -67,7 +67,7 @@ const updateStats = () => {
             $('.song-text').text(songText);
             if ($('.song-text').parent().prop('scrollHeight') > $('.song-text').parent().height() + 16) {
                 const t = $('<div></div>').html(songText).text(),
-                      m = `<marquee direction="right" scrollamount="8">${t}</marquee>`;
+                      m = `<marquee direction="right" scrollamount="5">${t}</marquee>`;
                 $('.song-text').html(m);
             };
         };
