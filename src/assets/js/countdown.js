@@ -56,13 +56,13 @@ const togglePlay = () => {
 
 const updateStats = () => {
     $.get('https://api.livida.net/api/radio/', (res) => {
-        const { data } = res;
-        $('.song-art').attr('src', data.song.art || `./assets/img/Livida.png`);
-        $('.artist-image').attr('src', data.slot.avatar || `./assets/img/Livida.png`);
-        $('.song-title').text(data.song.name);
-        $('.song-artist').text(data.song.artist);
-        $('.dj-name').text(data.dj);
-        const songText = `${data.song.name} by ${data.song.artist}`;
+        const data = res;
+        $('.song-art').attr('src', data.nowplaying.song.art || `./assets/img/Livida.png`);
+        $('.artist-image').attr('src', data.nowplaying.artist.art || `./assets/img/Livida.png`);
+        $('.song-title').text(data.nowplaying.song.name);
+        $('.song-artist').text(data.nowplaying.artist.name);
+        $('.dj-name').text(data.dj.username);
+        const songText = `${data.nowplaying.song.name} by ${data.nowplaying.artist.name}`;
         if (window.prevSongText != songText) {
             $('.song-text').text(songText);
             if ($('.song-text').parent().prop('scrollHeight') > $('.song-text').parent().height() + 16) {
